@@ -2,22 +2,33 @@ import { ERede } from './erede'
 import { expect } from 'chai';
 import 'mocha';
 import * as randomstring from 'randomstring'
+import { AuthorizationResponse } from './model/authorizationResponse';
+import { CaptureResponse } from './model/captureResponse';
+import { RefundResponse } from './model/refundResponse';
 
 var erede = new ERede("10000980", "b884f83537a441e7ab96cbfd9a76fa8f", true);
 
-function cancelaVenda(resultAuthorization: any): Promise<any> {
+function cancelaVenda(resultCapture: CaptureResponse): Promise<RefundResponse> {
   return new Promise((resolve, reject) => {
     const cancelSaleParams = {
       "amount": 2099
     };
 
-    erede.cancelSale(resultAuthorization.tid, cancelSaleParams)
+    return erede.cancelSale(resultCapture.tid, cancelSaleParams)
     .then((resultCancel) => {
-      expect(resultCancel.data.returnCode).to.be.oneOf(['359','360']);
+      expect(resultCancel.returnCode).to.be.oneOf(['359','360']);
       resolve(resultCancel)
     })
     .catch(reject)
   })
+}
+
+function capturaVenda(resultAuthorization: AuthorizationResponse): Promise<CaptureResponse> {
+  const captureParams = {
+    amount: 2099
+  };
+
+  return erede.capture(resultAuthorization.tid, captureParams);
 }
 
 describe('E-Rede sdk nodejs', () => {
@@ -37,18 +48,14 @@ describe('E-Rede sdk nodejs', () => {
   
     erede.authorization(authorizationParams)
     .then((resultAuthorization) => {
-      console.log('resultAuthorization', resultAuthorization)
-      // expect(resultAuthorization.status).to.equal(200);
       expect(resultAuthorization.reference).to.equal(authorizationParams.reference);
       expect(resultAuthorization.returnMessage).to.equal('Success.');
       return resultAuthorization;
     })
-    .catch((err) => {
-      console.log('Erro na autorização', err)
-    })
+    .then(capturaVenda)
     .then(cancelaVenda)
     .catch((err) => {
-      console.log('Erro no cancelamento', err)
+      console.log('ERRO', err)
     })
   });
 })

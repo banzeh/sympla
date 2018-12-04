@@ -1,6 +1,7 @@
 import axios, {  AxiosPromise } from 'axios';
 import { AuthorizationResponse } from './model/authorizationResponse';
 import { CaptureResponse } from './model/captureResponse';
+import { RefundResponse } from './model/refundResponse';
 
 enum URL {
   producao = "https://api.userede.com.br/erede/v1/transactions",
@@ -39,54 +40,54 @@ export class ERede {
    */
   authorization(data: any): Promise<AuthorizationResponse> {
     return new Promise(async (resolve, reject) => {
-      try {
-        let response = new AuthorizationResponse();
-        let request = await axios({
-          method: 'POST',
-          url: this.getUrl(),
-          headers: {
-            'Authorization': this.getCredential()
-          },
-          data: data
-        })
-        return resolve(response.parse(request.data))
-      } catch(err){
-        return reject(err);
-      }
+      axios({
+        method: 'POST',
+        url: this.getUrl(),
+        headers: {
+          'Authorization': this.getCredential()
+        },
+        data: data
+      })
+      .then((request) => resolve(new AuthorizationResponse().parse(request.data)))
+      .catch((err) => reject(err))
     })
   }
 
   /**
    * @description Cancela uma venda através do TID
    */
-  cancelSale(TID: string, data: any): AxiosPromise {
-    return axios({
-      method: 'POST',
-      url: this.getUrl().concat(`/${TID}/refunds`),
-      headers: {
-        'Authorization': this.getCredential()
-      },
-      data: data
+  cancelSale(TID: string, data: any): Promise<RefundResponse> {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'POST',
+        url: this.getUrl().concat(`/${TID}/refunds`),
+        headers: {
+          'Authorization': this.getCredential()
+        },
+        data: data
+      })
+      .then((request) => resolve(new RefundResponse().parse(request.data)))
+      .catch((err) => reject(err))
     })
   }
 
+  /**
+   * @description Realiza a captura da transação
+   * @param TID número do TID da transação
+   * @param data Objeto com o valor da captura
+   */
   capture(TID: string, data: any): Promise<CaptureResponse> {
     return new Promise(async (resolve, reject) => {
-      try {
-        axios({
-          method: 'PUT',
-          url: this.getUrl().concat(`/${TID}`),
-          headers: {
-            'Authorization': this.getCredential()
-          },
-          data: data
-        })
-        .then((response) => {
-
-        })
-      } catch(err) {
-        return reject(err);
-      }
+      axios({
+        method: 'PUT',
+        url: this.getUrl().concat(`/${TID}`),
+        headers: {
+          'Authorization': this.getCredential()
+        },
+        data: data
+      })
+      .then((request) => resolve(new CaptureResponse().parse(request.data)))
+      .catch((err) => reject(err))
     })
   }
 }
