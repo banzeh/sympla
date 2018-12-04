@@ -15,5 +15,6 @@ export class ResponseBase {
     this.returnCode = data.returnCode || '';
     this.returnMessage = data.returnMessage || '';
     this.links = data.links || [];
+    return this;
   }
 }
