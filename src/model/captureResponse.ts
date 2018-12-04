@@ -1,4 +1,5 @@
 import { ResponseBase } from "./responseBase";
+import { Link } from './link'
 
 export class CaptureResponse extends ResponseBase {
   
