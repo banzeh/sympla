@@ -39,7 +39,7 @@ export class ERede {
    * @url https://www.userede.com.br/desenvolvedores/pt/produto/e-Rede#documentacao-autorizacao
    */
   authorization(data: any): Promise<AuthorizationResponse> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       axios({
         method: 'POST',
         url: this.getUrl(),
@@ -49,7 +49,7 @@ export class ERede {
         data: data
       })
       .then((request) => resolve(new AuthorizationResponse().parse(request.data)))
-      .catch((err) => reject(err))
+      .catch(reject);
     })
   }
 
@@ -67,7 +67,7 @@ export class ERede {
         data: data
       })
       .then((request) => resolve(new RefundResponse().parse(request.data)))
-      .catch((err) => reject(err))
+      .catch(reject);
     })
   }
 
@@ -77,7 +77,7 @@ export class ERede {
    * @param data Objeto com o valor da captura
    */
   capture(TID: string, data: any): Promise<CaptureResponse> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       axios({
         method: 'PUT',
         url: this.getUrl().concat(`/${TID}`),
@@ -87,7 +87,26 @@ export class ERede {
         data: data
       })
       .then((request) => resolve(new CaptureResponse().parse(request.data)))
-      .catch((err) => reject(err))
+      .catch(reject);
+    })
+  }
+
+  /**
+   * @description Retorna um array com os cancelamentos do TID
+   * @param TID número do TID da transação que se deseja buscar os cancelamentos
+   */
+  getRefunds(TID: string): Promise<RefundResponse[]> {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'GET',
+        url: this.getUrl().concat(`/${TID}/refunds`),
+        headers: {
+          'Authorization': this.getCredential()
+        }
+      }).then((request) => {
+        let refundList = <RefundResponse[]> request.data.refunds
+        resolve(refundList)
+      }).catch(reject);
     })
   }
 }
