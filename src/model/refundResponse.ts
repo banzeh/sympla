@@ -7,7 +7,10 @@ export class RefundResponse extends ResponseBase {
   tid: string = '';
   nsu: string = '';
   cancelId: string = '';
-  refundDateTime: Date = new Date();  
+  refundDateTime: Date = new Date();
+  status: string = '';
+  amount: number = 0;
+
 
   constructor(returnCode: string = '', returnMessage: string = '', links: Array<Link> = []){
     super(returnCode, returnMessage, links);
@@ -17,11 +20,13 @@ export class RefundResponse extends ResponseBase {
     this.returnCode = result.returnCode || '';
     this.returnMessage = result.returnMessage || '';
     this.links = result.links || [];
-    this.refundId = result.reference || '';
+    this.refundId = result.refundId || '';
     this.tid = result.tid || '';
     this.nsu = result.nsu || '';
     this.cancelId = result.authorizationCode || '';
     this.refundDateTime = result.dateTime || new Date();
+    this.status = result.status || '';
+    this.amount = result.amount || 0;
     return this;
   }
 
