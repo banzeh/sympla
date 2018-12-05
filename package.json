@@ -1,5 +1,5 @@
 {
-  "name": "rede-sdk",
+  "name": "erede",
   "version": "1.0.0",
   "description": "Integração com a API da rede",
   "main": "dist/erede.js",
