@@ -1,10 +1,14 @@
 {
   "name": "erede",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Integração com a API da rede",
   "main": "dist/erede.js",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banzeh/erede.git"
   },
   "keywords": [
     "rede",
