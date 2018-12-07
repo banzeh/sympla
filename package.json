@@ -1,25 +1,26 @@
 {
-  "name": "erede",
+  "name": "sympla",
   "version": "1.0.1",
-  "description": "Integração com a API da rede",
-  "main": "dist/erede.js",
+  "description": "Integração com a API da Sympla https://www.sympla.com.br/",
+  "main": "dist/sympla.js",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/banzeh/erede.git"
+    "url": "git+https://github.com/banzeh/sympla.git"
   },
   "keywords": [
-    "rede",
-    "erede",
-    "gateway",
-    "rest"
+    "sympla",
+    "eventos",
+    "api",
+    "shows"
   ],
   "author": "Flavio Takeuchi <flavio@banzeh.com.br>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "tslint": "^5.11.0"
   },
   "devDependencies": {
     "@types/node": "^10.12.12",
