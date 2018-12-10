@@ -3,8 +3,11 @@ import { Sort } from "./sort";
 import { Pagination } from "./pagination";
 
 export class ResponseListarParticipantesEvento {
+  /** @description Array of object (Participants) */
   data: Array<Participants>;
+  /** @description object (Sort) */
   sort: Sort;
+  /** @description object (Pagination) */
   pagination: Pagination;
 
   constructor(data: any) {
@@ -20,7 +23,9 @@ export class ResponseListarParticipantesEvento {
 }
 
 export class ResponseListarParticipantesIngresso {
+  /** @description object (Participants) */
   data: Participants;
+
   constructor(data: any) {
     data = (typeof data === 'undefined') ? {} : data;
     this.data = new Participants(data.data);

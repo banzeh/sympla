@@ -1,7 +1,9 @@
 import { EnumSort } from "./enums";
 
 export class Sort {
+  /** @description Nome do parâmetro pelo qual os resultados serão ordenados */
   field_sort: string;
+  /** @description Ordenação aplicada */
   sort: EnumSort;
 
   constructor(data: any) {

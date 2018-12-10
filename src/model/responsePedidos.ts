@@ -4,8 +4,11 @@ import { Order } from "./order";
 import { Participants } from "./participants";
 
 export class ResponseListarPedidosEvento {
+  /** @description Array of object (Order) */
   data: Array<Order>;
+  /** @description object (Sort) */
   sort: Sort;
+  /** @description object (Pagination) */
   pagination: Pagination;
 
   constructor(data: any) {
@@ -19,6 +22,7 @@ export class ResponseListarPedidosEvento {
 }
 
 export class ResponseListarPedidosIdentificador {
+  /** @description object (Order) */
   data: Order;
 
   constructor(data: any) {
@@ -27,8 +31,11 @@ export class ResponseListarPedidosIdentificador {
 }
 
 export class ResponseListarParticipantesPedido {
+  /** @description Array of object (Order) */
   data: Array<Participants>;
+  /** @description object (Participants) */
   sort: Sort;
+  /** @description object (Pagination) */
   pagination: Pagination;
 
   constructor(data: any) {

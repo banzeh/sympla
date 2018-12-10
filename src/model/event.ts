@@ -1,11 +1,23 @@
 export class EventAddress {
+  /** @description Título da localização */
   name: string;
+  /** @description Endereço */
   address: string;
+  /** @description Número do local */
   address_num: string;
+  /** @description Complemento on-line as propriedades city e name serão Evento online e o restante será null.
+
+*/
+  address_alt: string;
+  /** @description Bairro */
   neighborhood: string;
+  /** @description Cidade */
   city: string;
+  /** @description Estado - Abreviação de 2 dígitos */
   state: string;
+  /** @description CEP */
   zip_code: string;
+  /** @description Pais */
   country: string;
 
   constructor(data: any){
@@ -13,6 +25,7 @@ export class EventAddress {
     this.name = data.name || undefined;
     this.address = data.address || undefined;
     this.address_num = data.address_num || undefined;
+    this.address_alt = data.address_alt || undefined;
     this.neighborhood = data.neighborhood || undefined;
     this.city = data.city || undefined;
     this.state = data.state || undefined;
@@ -23,7 +36,9 @@ export class EventAddress {
 }
 
 export class EventHost {
+  /** @description Nome do organizador */
   name: string;
+  /** @description Descrição do organizador */
   description: string;
 
   constructor(data: any) {
@@ -34,6 +49,7 @@ export class EventHost {
 }
 
 export class EventCategory {
+  /** @description Nome da categoria */
   name: string;
 
   constructor(data: any) {
@@ -43,16 +59,27 @@ export class EventCategory {
 }
 
 export class Event {
+  /** @description Identificador único do evento */
   id: number;
+  /** @description Data de início do evento */
   start_date: string;
+  /** @description Data final do evento */
   end_date: string;
+  /** @description Nome do evento */
   name: string;
+  /** @description Descrição do evento */
   detail: string;
+  /** Se o evento está como privado */
   private_event: boolean;
+  /** Se o evento está publicado */
   published: boolean;
+  /** @description Se o evento está cancelado */
   cancelled: boolean;
+  /** @description Url da imagem do evento */
   image: string;
+  /** @description Url do evento */
   url: string;
+  /** @⚠ Caso o evento seja on-line as propriedades city e name serão Evento online e o restante será null. */
   address: EventAddress;
   host: EventHost;
   category_prim: EventCategory;

@@ -3,6 +3,9 @@ import { Library } from "../uLibrary";
 export class Query {
   // []: any;
 
+  /**
+   *@description Transforma as variáveis da classe em um objeto de query na requisição
+   */
   parse(): (string | undefined)[] {
     var self = (<any>this);
     let properties = Object.getOwnPropertyNames(this);

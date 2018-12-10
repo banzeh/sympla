@@ -1,8 +1,9 @@
-import { type } from "os";
-
 export class CheckIn {
+  /** @description Identificador único do check-in */
   id: number;
+  /** @description Indica se o check-in do ingresso foi realizado */
   check_in: boolean;
+  /** Data e hora em que o check-in foi realizado */
   check_in_date: string;
 
   constructor(data: any) {
@@ -14,8 +15,11 @@ export class CheckIn {
 }
 
 export class CustomForm {
+  /** @description Identificador único do campo personalizado */
   id: number;
+  /** @description Nome do campo personalizado */
   name: string;
+  /** @description Valor do campo personalizado */
   value: string;
 
   constructor(data: any) {
@@ -27,15 +31,25 @@ export class CustomForm {
 }
 
 export class Participants {
+  /** @description Identificador único do ingresso */
   id: number;
+  /** @description Identificador único do pedido */
   order_id: string;
+  /** @description Nome que está escrito no ingresso */
   first_name: string;
+  /** @description Sobrenome que está escrito no ingresso */
   last_name: string;
+  /** @description E-mail que está escrito no ingresso */
   email: string;
+  /** @description Código escrito no ingresso. Este atributo não deverá ser utilizado como identificador único do ingresso, pois em caso de troca de titularidade esse código irá mudar. */
   ticket_number: string;
+  /** @description Código escrito no QR Code. Este atributo não deverá ser utilizado como identificador único do ingresso, pois em caso de troca de titularidade esse código irá mudar. */
   ticket_num_qr_code: string;
+  /** @description Título do ingresso */
   ticket_name: string;
+  /** @description Nome do usuário PDV que realizou a venda */
   pdv_user: string;
+  /** @description Preço de venda do ingresso */
   ticket_sale_price: number;
   checkin: CheckIn;
   custom_form: Array<CustomForm> = [];

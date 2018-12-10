@@ -28,17 +28,33 @@ export class InvoiceInfo {
 }
 
 export class Order {
+  /** @description Identificador único do pedido */
   id: string;
+  /** @description Identificador único do evento */
   event_id: string;
+  /** @description Data do pedido */
   order_date: string;
+  /** @description Situação do pedido */
   order_status: EnumOrderStatus;
+  /** @description Data de quando um pedido foi atualizado. Campo atualizado quando ocorre uma mudança no campo order_status ou troca de titularidade */
   updated_date: string;
+  /** @description Código promocional utilizado */
   discount_code: string;
+  /** @description Forma de pagamento */
   transaction_type: EnumTransactionType;
+  /** @description Valor total do pedido */
   order_total_sale_price: number;
+  /** @description Nome do comprador */
   buyer_first_name: string;
+  /** @description Sobrenome do comprador */
   buyer_last_name: string;
+  /** E-mail do comprador */
   buyer_email: string;
+  /** 
+   * @description Dados pessoais e de endereço do tomador do pedido.  
+   * @obs Para que esses dados sejam habilitados, é necessário solicitar à Sympla.
+   * @url https://ajuda.sympla.com.br/hc/pt-br/articles/360000508286-Como-posso-coletar-os-dados-dos-participantes-para-emiss%C3%A3o-de-Nota-Fiscal-
+  */
   invoice_info: InvoiceInfo;
 
   constructor(data: any) {

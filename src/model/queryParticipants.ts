@@ -2,11 +2,16 @@ import { Query } from "./query";
 import { EnumSort } from "./enums";
 
 export class QueryListarParticipantesEvento extends Query {
+  /** @description Código escrito no ingresso. Este atributo não deverá ser utilizado com identificador único do ingresso, pois em caso de troca de titularidade esse código irá mudar. */
   ticket_number: string;
   page_size: number;
+  /** @description Número da página dos resultados */
   page: number;
+  /** @description Permite que os resultados sejam ordenados */
   field_sort: string;
+  /** @default ASC */
   sort: EnumSort;
+  /** @description Deve ser utilizado para retornar apenas os atributos indicados do objeto. Os atributos indicados devem ser separados por "," */
   fields: string;
 
   constructor(data: any) {
@@ -22,6 +27,7 @@ export class QueryListarParticipantesEvento extends Query {
 }
 
 export class QueryListarParticipantesIngresso extends Query {
+  /** @description Deve ser utilizado para retornar apenas os atributos indicados do objeto. Os atributos indicados devem ser separados por "," */
   fields: string;
 
   constructor(data: any) {

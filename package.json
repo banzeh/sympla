@@ -4,7 +4,8 @@
   "description": "Integração com a API da Sympla https://www.sympla.com.br/",
   "main": "dist/sympla.js",
   "scripts": {
-    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "docs": "typedoc --out ./docs ./src"
   },
   "repository": {
     "type": "git",

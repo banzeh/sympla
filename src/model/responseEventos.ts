@@ -3,11 +3,15 @@ import { Sort } from "./sort";
 import { Pagination } from "./pagination";
 
 export class ResponseListarEventos {
-  data: Array<Event> = [];
+  /** @description Array of object (Events) */
+  data: Array<Event>;
+  /** @description object (Sort) */
   sort: Sort;
+  /** @description object (Pagination) */
   pagination: Pagination;
 
   constructor(data: any) {
+    this.data = [];
     for ( var i = 0; i < data.data.length; i++ ){
       this.data.push(new Event(data.data[i]));
     }
@@ -17,6 +21,7 @@ export class ResponseListarEventos {
 }
 
 export class ResponseListarEventosID {
+  /** @description object (Events) */
   data:Event;
 
   constructor(data: any) {
