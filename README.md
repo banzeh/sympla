@@ -41,7 +41,9 @@ var sympla = new Sympla('SeuSymplaTokenAqui')
 
 ## <a name="apiReference"></a> API Reference
 
-[https://developers.sympla.com.br/api-doc/index.html#section/Introducao](https://developers.sympla.com.br/api-doc/index.html#section/Introducao)
+[Documentação da API](https://banzeh.github.io/sympla/)
+
+[Documentação da Sympla](https://developers.sympla.com.br/api-doc/index.html#section/Introducao)
 
 ## <a name="testes"></a> Testes
 
@@ -66,7 +68,7 @@ Flavio Takeuchi <[flavio@banzeh.com.br](mailto:flavio@banzeh.com.br)>
 
 MIT License
 
-Copyright (c) 2017 banzeh
+Copyright (c) 2018 banzeh
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
