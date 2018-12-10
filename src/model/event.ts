@@ -92,9 +92,9 @@ export class Event {
     this.end_date = data.end_date || undefined;
     this.name = data.name || undefined;
     this.detail = data.detail || undefined;
-    this.private_event = data.private_event || undefined;
-    this.published = data.published || undefined;
-    this.cancelled = data.cancelled || undefined;
+    this.private_event = data.private_event || false;
+    this.published = data.published || false;
+    this.cancelled = data.cancelled || false;
     this.image = data.image || undefined;
     this.url = data.url || undefined;
     this.address = new EventAddress(data.address) || undefined;

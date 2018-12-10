@@ -9,7 +9,7 @@ export class CheckIn {
   constructor(data: any) {
     data = (typeof data === 'undefined') ? {} : data;
     this.id = data.id || undefined;
-    this.check_in = data.check_in || undefined;
+    this.check_in = data.check_in || false;
     this.check_in_date = data.check_in_date || undefined;
   }
 }

@@ -18,8 +18,8 @@ export class Pagination {
   total_page: number;
 
   constructor(data: any){
-    this.has_next = data.has_next || undefined;
-    this.has_prev = data.has_prev || undefined;
+    this.has_next = data.has_next || false;
+    this.has_prev = data.has_prev || false;
     this.quantity = data.quantity || undefined;
     this.offset = data.offset || undefined;
     this.page = data.page || undefined;

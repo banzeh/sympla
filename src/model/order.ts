@@ -23,7 +23,7 @@ export class InvoiceInfo {
     this.address_neighborhood = data.address_neighborhood || undefined;
     this.address_city = data.address_city || undefined;
     this.address_states = data.address_states || undefined;
-    this.mei = data.mei || undefined;
+    this.mei = data.mei || false;
   }
 }
 
