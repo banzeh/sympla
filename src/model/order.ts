@@ -1,6 +1,4 @@
 import { EnumOrderStatus, EnumTransactionType } from "./enums";
-import { Sort } from "./sort";
-import { Pagination } from "./pagination";
 
 export class InvoiceInfo {
   doc_type: string;
