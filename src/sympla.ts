@@ -121,3 +121,20 @@ export class Sympla {
     })
   }
 }
+
+export { 
+  QueryListarEventos, 
+  QueryListarEventosID, 
+  ResponseListarEventos, 
+  ResponseListarEventosID,
+  QueryListarPedidosEvento, 
+  QueryListarPedidosID,
+  ResponseListarPedidosEvento, 
+  ResponseListarPedidosIdentificador,
+  QueryListarParticipantesEvento, 
+  QueryListarParticipantesIngresso,
+  ResponseListarParticipantesEvento, 
+  ResponseListarParticipantesIngresso,
+  QueryListarParticipantesPedido, 
+  ResponseListarParticipantesPedido
+}
