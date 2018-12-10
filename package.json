@@ -1,6 +1,6 @@
 {
   "name": "sympla",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Integração com a API da Sympla https://www.sympla.com.br/",
   "main": "dist/sympla.js",
   "scripts": {
