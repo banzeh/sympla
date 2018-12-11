@@ -5,7 +5,7 @@
   "main": "dist/sympla.js",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
-    "docs": "typedoc --out ./docs ./src"
+    "docs": "rm -R ./docs && typedoc --out ./docs ./src && touch ./docs/.nojekyll"
   },
   "repository": {
     "type": "git",
